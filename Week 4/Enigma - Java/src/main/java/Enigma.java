@@ -52,6 +52,7 @@ public final class Enigma {
         Example output: "TEST?MESSAGE€?WORKING€" */
 
         // TO DO - add your implementation
+        return "";
     }
 
     public static String formatOutputMessage(String message){
@@ -64,9 +65,29 @@ public final class Enigma {
         Example output: "Test message. Working. */
 
         // TO DO - add your implementation
+        StringBuilder formattedOutput = new StringBuilder();
+        boolean capitalizeNext = true;
+        for (char c : message.toCharArray()) {
+            if (c == '?') {
+                formattedOutput.append(' ');
+                capitalizeNext = true;
+            } else if (c == '€') {
+                formattedOutput.append('.');
+                capitalizeNext = true;
+            } else {
+                if (capitalizeNext) {
+                    formattedOutput.append(Character.toUpperCase(c));
+                    capitalizeNext = false;
+                } else {
+                    formattedOutput.append(Character.toLowerCase(c));
+                }
+            }
+        }
+
+        return formattedOutput.toString();
     }
 
-    public static String caesarShift(String message, int shift, bool encode){
+    public static String caesarShift(String message, int shift, boolean encode){
         /* The CaesarShift method should take a message and shift each character [A-Z] by the 
         value shift, incrementing or decrementing the value of shift by 1 or -1 with each 
         character shifted if given a positive shift value if encode = true otherwise shifted
@@ -77,6 +98,7 @@ public final class Enigma {
         Example output: "AWCBD" */
         
         // TO DO - add your implementation
+        return "";
     }
 
     private static String applyRotor(String message, String rotor){
@@ -87,6 +109,7 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
+        return "";
     }
 
     private static String reverseRotor(String message, String rotor){
@@ -94,5 +117,6 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
+        return "";
     }
 }
