@@ -51,8 +51,20 @@ public final class Enigma {
         Example input:  "Test message. Working.
         Example output: "TEST?MESSAGE€?WORKING€" */
 
+
         // TO DO - add your implementation
-        return "";
+        StringBuilder formattedOutput = new StringBuilder();
+        boolean capitalizeNext = true;
+        for (char c : output.toCharArray()) {
+            if (c == '?') {
+                formattedOutput.append(' ');
+                capitalizeNext = true;
+            } else if (c == '€') {
+                formattedOutput.append('.');
+                capitalizeNext = true;
+            } else {
+                if (capitalizeNext) {
+                    formattedOutput.append(Character.toUpperCase(c));
     }
 
     public static String formatOutputMessage(String message){
