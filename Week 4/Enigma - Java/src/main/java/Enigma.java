@@ -121,7 +121,27 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
-        return "";
+  
+
+
+            // Convert the input string to uppercase for simplicity
+            StringBuilder result = new StringBuilder();
+    
+            for (char c : message.toUpperCase().toCharArray()) {
+                if (Character.isLetter(c)) {
+                    // Calculate the index of the character in the alphabet
+                    int index = c - 'A';
+                    // Substitute the character with the corresponding character in the rotor
+                    char substitutedChar = rotor.charAt(index);
+                    // Append the substituted character to the result
+                    result.append(substitutedChar);
+                } else {
+                    // If the character is not a letter, just append it to the result
+                    result.append(c);
+                }
+            }
+            return result.toString();
+            
     }
 
     private static String reverseRotor(String message, String rotor){
