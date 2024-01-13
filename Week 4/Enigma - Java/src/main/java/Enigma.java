@@ -48,7 +48,7 @@ public final class Enigma {
 
     }
 
-    public static String formatInputMessage(String message){
+    public static String formatInputMessage(String message) {
         /* The method FormatInputMessage should be used when encoding a message. It should
         make all characters in the string message uppercase. Remove all non alphabetic 
         characters from the string except for spaces ' '  and full stops '.'. Then 
@@ -60,18 +60,21 @@ public final class Enigma {
 
 
         // TO DO - add your implementation
-        StringBuilder formattedOutput = new StringBuilder();
-        boolean capitalizeNext = true;
-        for (char c : output.toCharArray()) {
-            if (c == '?') {
-                formattedOutput.append(' ');
-                capitalizeNext = true;
-            } else if (c == '€') {
-                formattedOutput.append('.');
-                capitalizeNext = true;
-            } else {
-                if (capitalizeNext) {
-                    formattedOutput.append(Character.toUpperCase(c));
+        input = input.toUpperCase();
+        StringBuilder formattedMessage = new StringBuilder();
+
+        for (char c : input.toCharArray()) {
+            if (Character.isLetter(c) || c == ' ' || c == '.') {
+                if (c == ' ') {
+                    formattedMessage.append('?');
+                } else if (c == '.') {
+                    formattedMessage.append('€');
+                } else {
+                    formattedMessage.append(c);
+                }
+            }
+        }
+        return formattedMessage.toString();
     }
 
     public static String formatOutputMessage(String message){
