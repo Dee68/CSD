@@ -29,15 +29,22 @@ public final class Enigma {
 
     public static String decode(String message, int incrementNumber, List<String> rotors)
     {
-        // TODO - Implement the Decrypt method
 
+
+        // TODO - Implement the Decrypt method
         // Steps in brief
         // 1. For each rotor in the list rotors, starting with the last rotor
         //  1.1 Translate the message using the rotor
         // 2. Apply the CAESAR shift
         // 3. Return the decrypted string
 
-        return "Implement the decrypt";
+        String decodedString = message;
+        for (int i = rotors.size()-1; i >=0 ; i--) {
+            decodedString = reverseRotor(decodedString,rotors.get(i));
+        }
+
+        decodedString = caesarShift(decodedString,incrementNumber,false);
+        return formatOutputMessage(decodedString);
 
     }
 
