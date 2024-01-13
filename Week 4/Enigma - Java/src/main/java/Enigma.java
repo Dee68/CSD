@@ -110,7 +110,23 @@ public final class Enigma {
         Example output: "AWCBD" */
         
         // TO DO - add your implementation
-        return "";
+                    StringBuilder result = new StringBuilder();
+                    for (char c : message.toCharArray()) {
+                        if (Character.isLetter(c)) {
+                            char base = Character.isUpperCase(c) ? 'A' : 'a';
+                            int offset = encode ? 1 : -1;
+                            int shiftedChar = (c - base + shift * offset + 26) % 26 + base;
+                            result.append((char) shiftedChar);
+                            if(shift > 0){
+                                shift += offset;
+                            }
+                            shift -= offset;
+                        } else {
+                            result.append(c);
+                        }
+                    }
+
+                    return result.toString();
     }
 
     private static String applyRotor(String message, String rotor){
