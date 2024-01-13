@@ -23,8 +23,14 @@ public final class Enigma {
         // 2. For each rotor in the list rotors
         //  2.1 Translate the message using the rotor
         // 3. Return the encrypted string
+        
+        String encodedMessage = caesarShift(message,incrementNumber,true);
 
-        return "Implement the encrypt method";
+        for (String rotor : rotors) {
+            encodedMessage = applyRotor(encodedMessage,rotor);
+        }
+        return formatInputMessage(encodedMessage);
+
     }
 
     public static String decode(String message, int incrementNumber, List<String> rotors)
