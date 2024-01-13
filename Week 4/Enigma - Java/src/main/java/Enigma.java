@@ -66,10 +66,10 @@ public final class Enigma {
 
 
         // TO DO - add your implementation
-        input = input.toUpperCase();
+        message = message.toUpperCase();
         StringBuilder formattedMessage = new StringBuilder();
 
-        for (char c : input.toCharArray()) {
+        for (char c : message.toCharArray()) {
             if (Character.isLetter(c) || c == ' ' || c == '.') {
                 if (c == ' ') {
                     formattedMessage.append('?');
@@ -153,8 +153,6 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
-  
-
 
             // Convert the input string to uppercase for simplicity
             StringBuilder result = new StringBuilder();
@@ -181,10 +179,10 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
-        input = input.toUpperCase();
+        message = message.toUpperCase();
         StringBuilder result = new StringBuilder();
 
-        for (char c : input.toCharArray()) {
+        for (char c : message.toCharArray()) {
             if (Character.isLetter(c)) {
                 int index = rotor.indexOf(c);
                 char originalChar = (char) ('A' + index);
