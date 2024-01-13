@@ -175,6 +175,19 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
-        return "";
+        input = input.toUpperCase();
+        StringBuilder result = new StringBuilder();
+
+        for (char c : input.toCharArray()) {
+            if (Character.isLetter(c)) {
+                int index = rotor.indexOf(c);
+                char originalChar = (char) ('A' + index);
+                result.append(originalChar);
+            } else {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
     }
 }
